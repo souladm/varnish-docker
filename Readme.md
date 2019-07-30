@@ -1,4 +1,4 @@
-# varnish-alpine-docker
+# Varnish docker
 
 ![varnish docker](https://miro.medium.com/max/1400/1*_KioJT01kB6QkAFUwIzu6Q.png)
 
