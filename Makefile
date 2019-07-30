@@ -70,7 +70,7 @@ create-tag: ## Remove images from local registry. Usage: $ make create-tag "exis
 
 clean: ## Remove images from local registry. Usage: $ make clean
 	$(docker_bin) ps -a | awk -F "\t" '{ print $$1,$$7 }' | grep "varnish-test-" | awk '{print $$1 }' | xargs -I {} $(docker_bin) rm -f {} ; \
-	$(docker_bin) rmi `$(docker_bin) images -q $(USERNAME)/$(REPOSITORY)`
+	$(docker_bin) rmi -f `$(docker_bin) images -q $(USERNAME)/$(REPOSITORY)`
 login: ## Log in to a remote Docker registry. Usage: $ make login
 	$(docker_bin) login $(REGISTRY_HOST)
 
