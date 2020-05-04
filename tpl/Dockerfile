@@ -17,7 +17,7 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/Europe/Kiev /etc/localtime && apk d
 RUN cd /tmp && wget https://varnish-cache.org/_downloads/varnish-!!VERSION!!.tgz && \
     tar xzvf ./varnish-!!VERSION!!.tgz && cd varnish-!!VERSION!!/ && \
     apk add --no-cache --virtual deps make automake autoconf libtool m4 pkgconf py-docutils \
-    linux-headers python2 && \
+    linux-headers python3 py-sphinx && \
     apk add gcc pcre-dev libexecinfo-dev musl-dev readline-dev ncurses-dev && \
     sed -i '1 i\AUTOMAKE_OPTIONS = subdir-objects' ./Makefile.am && \
     sed -i '1 i\AUTOMAKE_OPTIONS = subdir-objects' bin/varnishd/Makefile.am && \
