@@ -1,4 +1,5 @@
 FROM alpine:3.10.1
+ARG VARNISH_VER=5.2.1
 LABEL maintainer="kosar@freedom.valor.ua"
 LABEL vendor="1node"
 LABEL lastUpdate="29-07-2019"
@@ -7,7 +8,7 @@ EXPOSE 80
 
 ENV VARNISH_MEMORY 1G
 ENV VARNISH_BACKEND_PORT 80
-ENV VARNISH_VER 5.2.1
+ENV VARNISH_VER $VARNISH_VER
 ENV VARNISH_DL https://varnish-cache.org/_downloads/varnish-$VARNISH_VER.tgz
 
 RUN apk update && apk upgrade

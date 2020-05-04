@@ -81,8 +81,7 @@ new: ## Create new tag from template. DANGER! EXPERIMENTAL! Usage: $ make new "t
 	else \
 	  if [ "$$(curl -o /dev/null --silent --head --write-out '%{http_code}' $(VARNISH_DL)$(TAG).tgz)" = "200" ]; then \
 		  cp -R ./tpl ./$(TAG); \
-			sed -i "s/!!VERSION!!/$(TAG)/g" ./$(TAG)/$(DOCKER_FILE); \
-			$(docker_bin) build -t $(IMAGE):$(TAG) -f ./$(TAG)/$(DOCKER_FILE) ./$(TAG); \
+			$(docker_bin) build -t $(IMAGE):$(TAG) --build-arg VARNISH_VER=$(TAG) -f ./$(TAG)/$(DOCKER_FILE) ./$(TAG); \
     else \
 		  echo "\n $(textred) This version of varnish is not found! Check vesion number, please. $(textnormal)"; \
   	fi; \
