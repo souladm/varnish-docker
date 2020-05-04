@@ -61,7 +61,7 @@ build: ## Build Docker image Usage: $ make build "tag"
   	echo "\n $(textred) Can't find this version locally. You should use key \"new\" to create new tag. $(textnormal)";  \
 	fi
 
-create-tag: ## Remove images from local registry. Usage: $ make create-tag "existing-tag" "new-tag"
+create-tag: ## Add additional tag to existing one. Usage: $ make create-tag "existing-tag" "new-tag"
 	if [ -d "./$(TAG)" ]; then \
 	  $(docker_bin) tag $(IMAGE):$(TAG) $(IMAGE):$(NEWTAG); \
 	else \
